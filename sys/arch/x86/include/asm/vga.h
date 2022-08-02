@@ -24,3 +24,13 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+#pragma once
+
+#include <bnix/stddef.h>
+
+void vga_init(void);
+void vga_clear(void);
+int vga_puts(const char* text);
+int vga_putchar(unsigned char c);
+void vga_cls();
