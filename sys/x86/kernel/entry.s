@@ -1,5 +1,5 @@
 ;
-; Copyright (c) 2010, Stefan Lankes, RWTH Aachen University
+; Copyright (c) 2022, Brandon Belna
 ; All rights reserved.
 ;
 ; Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,6 @@
 ; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 [BITS 32]
-; We use a special name to map this section at the begin of our kernel
-; =>  Multiboot needs its magic number at the begin of the kernel
 SECTION .mboot
 global start
 start:
