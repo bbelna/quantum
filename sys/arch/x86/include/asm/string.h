@@ -70,57 +70,33 @@ inline static void* memset(void* dest, int val, size_t count) {
 #endif
 
 #ifdef HAVE_ARCH_STRLEN
-/** @brief Standard string length
- *
- * This function computed the length of the given null terminated string
- * just like the strlen functions you are used to.
- *
- * @return 
- * - The length of the string
- * - 0 if str is a NULL pointer
- */
-inline static size_t strlen(const char* str)
-{
-	size_t len = 0;
-	size_t i, j;
-
-	if (BUILTIN_EXPECT(!str, 0))
-		return len;
-
+inline static size_t strlen(const char* str) {
+  size_t len = 0;
+  size_t i, j;
+  if (BUILTIN_EXPECT(!str, 0)) return len;
 #ifdef CONFIG_X86_32
-	asm volatile("not %%ecx; cld; repne scasb; not %%ecx; dec %%ecx"
-		: "=&c"(len), "=&D"(i), "=&a"(j)
-		: "2"(0), "1"(str), "0"(len)
-		: "memory","cc");
+  asm volatile(
+    "not %%ecx; cld; repne scasb; not %%ecx; dec %%ecx"
+    : "=&c"(len), "=&D"(i), "=&a"(j)
+    : "2"(0), "1"(str), "0"(len)
+    : "memory","cc"
+  );
 #elif defined(CONFIG_X86_64)
-	asm volatile("not %%rcx; cld; repne scasb; not %%rcx; dec %%rcx"
-		: "=&c"(len), "=&D"(i), "=&a"(j)
-		: "2"(0), "1"(str), "0"(len)
-		: "memory","cc");
+  asm volatile(
+    "not %%rcx; cld; repne scasb; not %%rcx; dec %%rcx"
+    : "=&c"(len), "=&D"(i), "=&a"(j)
+    : "2"(0), "1"(str), "0"(len)
+    : "memory","cc"
+  );
 #endif
-
-	return len;
+  return len;
 }
 #endif
 
 #ifdef HAVE_ARCH_STRNCPY
-/** @brief Copy string with maximum of n byte length
- *
- * @param dest Destination string pointer
- * @param src Source string pointer
- * @param n maximum number of bytes to copy
- */
 char* strncpy(char* dest, const char* src, size_t n);
 #endif
 
 #ifdef HAVE_ARCH_STRCPY
-/** @brief Copy string
- *
- * Note that there is another safer variant of this function: strncpy.\n
- * That one could save you from accidents with buffer overruns.
- *
- * @param dest Destination string pointer
- * @param src Source string pointer
- */
 char* strcpy(char* dest, const char* src);
 #endif
