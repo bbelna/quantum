@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Brandon Belna
+ * Copyright (c) 2022, Brandon Alex Belna
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,7 +27,7 @@
 
 #pragma once
 
-#include <belnix/config.h>
+#include <bnix/config.h>
 #include <asm/stddef.h>
 
 #define VIDEO_MEM_ADDR      0xB8000

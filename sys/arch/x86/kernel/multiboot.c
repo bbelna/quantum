@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Brandon Belna
+ * Copyright (c) 2022, Brandon Alex Belna
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <belnix/stddef.h>
+#include <bnix/stddef.h>
 #include <asm/multiboot.h>
 
 multiboot_info_t* mb_info __attribute__((section(".data"))) = NULL;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Brandon Belna
+ * Copyright (c) 2022, Brandon Alex Belna
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <belnix/string.h>
+#include <bnix/string.h>
 
 #ifndef HAVE_ARCH_MEMCPY
 void* memcpy(void* dest, const void* src, size_t count) {

@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  */
 
-#include <belnix/stddef.h>
+#include <bnix/stddef.h>
 
 typedef uint64_t u_quad_t;
 u_quad_t __qdivrem(u_quad_t uq, u_quad_t vq, u_quad_t* arq);

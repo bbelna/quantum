@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Brandon Belna
+ * Copyright (c) 2022, Brandon Alex Belna
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <belnix/string.h>
+#include <bnix/string.h>
 #include <asm/io.h>
 #include <asm/vga.h>
 #include <asm/stddef.h>

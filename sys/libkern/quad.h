@@ -1,6 +1,6 @@
 #pragma once
 
-#include <belnix/stddef.h>
+#include <bnix/stddef.h>
 #include <asm/limits.h>
 
 typedef uint64_t  u_quad_t;

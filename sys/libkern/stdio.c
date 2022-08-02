@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Brandon Belna
+ * Copyright (c) 2022, Brandon Alex Belna
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <belnix/stdio.h>
-#include <belnix/string.h>
-#include <belnix/stdarg.h>
+#include <bnix/stdio.h>
+#include <bnix/string.h>
+#include <bnix/stdarg.h>
 #include <asm/vga.h>
 
 int koutput_init(void) {

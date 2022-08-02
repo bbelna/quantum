@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Brandon Belna
+ * Copyright (c) 2022, Brandon Alex Belna
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,9 +27,12 @@
 
 #pragma once
 
-typedef __builtin_va_list va_list;
+#include <bnix/config.h>
+#include <bnix/stddef.h>
+#include <bnix/stdarg.h>
 
-#define va_start        __builtin_va_start
-#define va_arg          __builtin_va_arg
-#define va_end          __builtin_va_end
-#define va_copy         __builtin_va_copy
+int kputs(const char*);
+int kputchar(int);
+int kprintf(const char*, ...);
+int koutput_init(void);
+int kvprintf(char const *fmt, void (*func) (int, void *), void *arg, int radix, va_list ap);
