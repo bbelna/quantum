@@ -27,24 +27,33 @@
 
 #pragma once
 
-#include <belnix/config.h>
-#include <asm/stddef.h>
+#include <belnix/stddef.h>
+#include <asm/string.h>
 
-#define VIDEO_MEM_ADDR      0xB8000
-#define NORETURN          __attribute__((noreturn))
-#define STDCALL           __attribute__((stdcall))
-#define NULL              ((void*) 0)
-#define per_core(name)    name
-#define CORE_ID           0
-
-#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-#define BYTE_ORDER BIG_ENDIAN
-#else
-#define BYTE_ORDER LITTLE_ENDIAN
+#ifndef HAVE_ARCH_MEMCPY
+void* memcpy(void* dest, const void* src, size_t count);
 #endif
 
-#ifdef __GNUC__
-#define BUILTIN_EXPECT(exp, b)  __builtin_expect((exp), (b))
-#else
-#define BUILTIN_EXPECT(exp, b)  (exp)
+#ifndef HAVE_ARCH_MEMSET
+void* memset(void* dest, int val, size_t count);
+#endif
+
+#ifndef HAVE_ARCH_STRLEN
+size_t strlen(const char* str);
+#endif
+
+#ifndef HAVE_ARCH_STRNCPY
+char* strncpy(char* dest, const char* src, size_t n);
+#endif
+
+#ifndef HAVE_ARCH_STRCPY
+char* strcpy(char* dest, const char* src);
+#endif
+
+#ifndef HAVE_ARCH_STRCMP
+int strcmp(const char* s1, const char* s2);
+#endif
+
+#ifndef HAVE_ARCH_STRNCMP
+int strncmp(const char* s1, const char* s2, size_t n);
 #endif
