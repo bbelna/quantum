@@ -31,19 +31,23 @@
  * SUCH DAMAGE.
  */
 
-#include "quad.h"
+#include <bnix/stddef.h>
 
-/*
- * Divide two signed quads.
- * ??? if -1/2 should produce -1 on this machine, this code is wrong
- */
-quad_t __divdi3(a, b) quad_t a, b; {
-  u_quad_t ua, ub, uq;
-  int neg;
-  if (a < 0) ua = -(u_quad_t)a, neg = 1;
-  else ua = a, neg = 0;
-  if (b < 0) ub = -(u_quad_t)b, neg ^= 1;
-  else ub = b;
-  uq = __qdivrem(ua, ub, (u_quad_t *)0);
-  return (neg ? -uq : uq);
+uint64_t __udivmoddi4(uint64_t num, uint64_t den, uint64_t *rem_p) {
+  uint64_t quot = 0, qbit = 1;
+  if (den == 0) return 1/((unsigned)den);
+  while ((int64_t)den >= 0) {
+    den <<= 1;
+    qbit <<= 1;
+  }
+  while (qbit) {
+    if ( den <= num ) {
+      num -= den;
+      quot += qbit;
+    }
+    den >>= 1;
+    qbit >>= 1;
+  }
+  if (rem_p) *rem_p = num;
+  return quot;
 }
