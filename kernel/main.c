@@ -38,7 +38,7 @@ extern char __BUILD_DATE;
 extern char __BUILD_TIME;
 
 static int bnix_init(void) {
-  memset((void*)&bss_start, ((size_t)&bss_end - (size_t)&bss_start));
+  memset((void*)&bss_start, 0x00, ((size_t)&bss_end - (size_t)&bss_start));
   koutput_init();
 }
 
