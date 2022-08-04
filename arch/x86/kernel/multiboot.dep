@@ -1,5 +1,0 @@
-arch/x86/kernel/multiboot.o: arch/x86/kernel/multiboot.c \
- /mnt/c/git-2/bnix/include/bnix/stddef.h \
- /mnt/c/git-2/bnix/include/bnix/config.h \
- /mnt/c/git-2/bnix/arch/x86/include/asm/stddef.h \
- /mnt/c/git-2/bnix/arch/x86/include/asm/multiboot.h

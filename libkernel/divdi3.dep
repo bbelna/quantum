@@ -1,5 +1,0 @@
-libkernel/divdi3.o: libkernel/divdi3.c libkernel/quad.h \
- /mnt/c/git-2/bnix/include/bnix/stddef.h \
- /mnt/c/git-2/bnix/include/bnix/config.h \
- /mnt/c/git-2/bnix/arch/x86/include/asm/stddef.h \
- /mnt/c/git-2/bnix/arch/x86/include/asm/limits.h

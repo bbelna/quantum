@@ -1,4 +1,0 @@
-libkernel/qdivrem.o: libkernel/qdivrem.c \
- /mnt/c/git-2/bnix/include/bnix/stddef.h \
- /mnt/c/git-2/bnix/include/bnix/config.h \
- /mnt/c/git-2/bnix/arch/x86/include/asm/stddef.h
