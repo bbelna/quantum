@@ -59,10 +59,10 @@ veryclean: clean
 	@echo Very cleaned
 
 qemu: $(NAME).elf
-	qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -net dump  -kernel $(NAME).elf
+	qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
 
 qemu-dbg: $(NAME).elf
-	qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -net dump -kernel $(NAME).elf
+	qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
 
 doc:
 	@doxygen

@@ -44,8 +44,6 @@ static int bnix_init(void) {
 
 int main(void) {
   bnix_init();
-  kprintf("BNIX Build %u, %u\n", PACKAGE_STRING, &__BUILD_DATE, &__BUILD_TIME);
-  kprintf("Kernel starts at %p and ends at %p\n", &kernel_start, &kernel_end);
   kprintf("\nHello World!\n");
   while(1) { HALT; }
   return 0;

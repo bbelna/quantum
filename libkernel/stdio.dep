@@ -1,0 +1,9 @@
+libkernel/stdio.o: libkernel/stdio.c \
+ /mnt/c/git-2/bnix/include/bnix/stdio.h \
+ /mnt/c/git-2/bnix/include/bnix/config.h \
+ /mnt/c/git-2/bnix/include/bnix/stddef.h \
+ /mnt/c/git-2/bnix/arch/x86/include/asm/stddef.h \
+ /mnt/c/git-2/bnix/include/bnix/stdarg.h \
+ /mnt/c/git-2/bnix/include/bnix/string.h \
+ /mnt/c/git-2/bnix/arch/x86/include/asm/string.h \
+ /mnt/c/git-2/bnix/arch/x86/include/asm/vga.h
