@@ -1,6 +1,9 @@
+# Belna Operating System Makefile
+
 TOPDIR = $(shell pwd)
 ARCH = x86
 NAME = bnix
+ISO_NAME = BelnaOS
 KERNDIRS = libkernel kernel arch/$(ARCH)/kernel
 SUBDIRS = $(KERNDIRS)
 
@@ -35,55 +38,55 @@ KEEP_DEBUG = --only-keep-debug
 # Prettify output
 V = 0
 ifeq ($V,0)
-	Q = @
-	P = > /dev/null
+  Q = @
+  P = > /dev/null
 endif
 
 default: all
 
 all: $(NAME).elf
 
-$(NAME).elf:
-	$Q$(LD_FOR_TARGET) $(LDFLAGS) -o $(NAME).elf $^
-	@echo [OBJCOPY] $(NAME).sym
-	$Q$(OBJCOPY_FOR_TARGET) $(KEEP_DEBUG) $(NAME).elf $(NAME).sym
-	@echo [OBJCOPY] $(NAME).elf
-	$Q$(OBJCOPY_FOR_TARGET) $(STRIP_DEBUG) $(NAME).elf
+kernel:
+  $Q$(LD_FOR_TARGET) $(LDFLAGS) -o $(NAME).elf $^
+  @echo [OBJCOPY] $(NAME).sym
+  $Q$(OBJCOPY_FOR_TARGET) $(KEEP_DEBUG) $(NAME).elf $(NAME).sym
+  @echo [OBJCOPY] $(NAME).elf
+  $Q$(OBJCOPY_FOR_TARGET) $(STRIP_DEBUG) $(NAME).elf
 
 clean:
-	$Q$(RM) $(NAME).elf $(NAME).sym *~
-	@echo Cleaned.
+  $Q$(RM) $(NAME).elf $(NAME).sym *~
+  @echo Cleaned.
 
 veryclean: clean
-	$Q$(RM) qemu-vlan0.pcap
-	@echo Very cleaned
+  $Q$(RM) qemu-vlan0.pcap
+  @echo Very cleaned
 
 qemu: $(NAME).elf
-	qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
+  qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
 
 qemu-dbg: $(NAME).elf
-	qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
+  qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
 
 doc:
-	@doxygen
-	@echo Create documentation...
+  @doxygen
+  @echo Create documentation...
 
 test:
-	@echo "Nothing to test"
+  @echo "Nothing to test"
 
 %.o : %.c
-	@echo [CC] $@
-	$Q$(CC_FOR_TARGET) -c -D__KERNEL__ $(CFLAGS) -o $@ $<
-	@echo [DEP] $*.dep
-	$Q$(CC_FOR_TARGET) -MF $*.dep -MT $*.o -MM $(CFLAGS) $<
+  @echo [CC] $@
+  $Q$(CC_FOR_TARGET) -c -D__KERNEL__ $(CFLAGS) -o $@ $<
+  @echo [DEP] $*.dep
+  $Q$(CC_FOR_TARGET) -MF $*.dep -MT $*.o -MM $(CFLAGS) $<
 
 %.o : %.asm
-	@echo [ASM] $@
-	$Q$(NASM) $(NASMFLAGS) -o $@ $<
+  @echo [ASM] $@
+  $Q$(NASM) $(NASMFLAGS) -o $@ $<
 
 %.o : %.s
-	@echo [ASM] $@
-	$Q$(NASM) $(NASMFLAGS) -o $@ $<
+  @echo [ASM] $@
+  $Q$(NASM) $(NASMFLAGS) -o $@ $<
 
 .PHONY: default all clean emu gdb newlib tools test
  
