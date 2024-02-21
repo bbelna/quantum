@@ -44,28 +44,32 @@ endif
 
 default: all
 
-all: $(NAME).elf
+all: $(NAME)
 
-$(NAME).elf:
-	$Q$(LD_FOR_TARGET) $(LDFLAGS) -o $(NAME).elf $^
+$(NAME):
+	$Q$(LD_FOR_TARGET) $(LDFLAGS) -o $(NAME) $^
 	@echo [OBJCOPY] $(NAME).sym
-	$Q$(OBJCOPY_FOR_TARGET) $(KEEP_DEBUG) $(NAME).elf $(NAME).sym
-	@echo [OBJCOPY] $(NAME).elf
-	$Q$(OBJCOPY_FOR_TARGET) $(STRIP_DEBUG) $(NAME).elf
+	$Q$(OBJCOPY_FOR_TARGET) $(KEEP_DEBUG) $(NAME) $(NAME).sym
+	@echo [OBJCOPY] $(NAME)
+	$Q$(OBJCOPY_FOR_TARGET) $(STRIP_DEBUG) $(NAME)
 
 clean:
-	$Q$(RM) $(NAME).elf $(NAME).sym *~
+	$Q$(RM) $(NAME).sym *~
 	@echo Cleaned.
+
+cleanbuild:
+	$Q$(RM) $(NAME) $(NAME).sym *~
+	@echo Cleared build.
 
 veryclean: clean
 	$Q$(RM) qemu-vlan0.pcap
 	@echo Very cleaned
 
-qemu: $(NAME).elf
-	qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
+qemu: $(NAME)
+	qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME)
 
-qemu-dbg: $(NAME).elf
-	qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
+qemu-dbg: $(NAME)
+	qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME)
 
 doc:
 	@doxygen
