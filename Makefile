@@ -1,4 +1,4 @@
-# BNIX Makefile
+# BNIX x86 Kernel Makefile
 
 TOPDIR = $(shell pwd)
 ARCH = x86

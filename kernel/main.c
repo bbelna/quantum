@@ -37,14 +37,16 @@ extern const void bss_end;
 extern char __BUILD_DATE;
 extern char __BUILD_TIME;
 
-static int bnix_init(void) {
+static int init(void) {
   memset((void*)&bss_start, 0x00, ((size_t)&bss_end - (size_t)&bss_start));
   koutput_init();
 }
 
 int main(void) {
-  bnix_init();
+  init();
   kprintf("\nHello World!\n");
+
+  // main kernel loop
   while(1) { HALT; }
   return 0;
 }
