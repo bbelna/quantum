@@ -1,6 +1,3 @@
-/* include/bnix/config.h.  Generated from config.h.in by configure.  */
-/* include/bnix/config.h.in.  Generated from configure.ac by autoheader.  */
-
 /* Define to use machine specific version of memcpy */
 #define HAVE_ARCH_MEMCPY 1
 
@@ -32,4 +29,4 @@
 #define PACKAGE_URL "http://github.com/bbelna/bnix/"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.1.0"
+#define PACKAGE_VERSION "0.0.1"

@@ -1,9 +1,9 @@
-# Belna Operating System Makefile
+# BNIX Makefile
 
 TOPDIR = $(shell pwd)
 ARCH = x86
 NAME = bnix
-ISO_NAME = BelnaOS
+ISO_NAME = bnix
 KERNDIRS = libkernel kernel arch/$(ARCH)/kernel
 SUBDIRS = $(KERNDIRS)
 
@@ -31,62 +31,62 @@ CFLAGS = -g -m32 -march=i586 -Wall -O2 -fno-builtin -fstrength-reduce -fomit-fra
 AR = ar
 ARFLAGS = rsv
 RM = rm -rf
-LDFLAGS = -T link.ld -z max-page-size=4096 --defsym __BUILD_DATE=$(shell date +'%Y%m%d') --defsym __BUILD_TIME=$(shell date +'%H%M%S')
+LDFLAGS = -T link32.ld -z max-page-size=4096 --defsym __BUILD_DATE=$(shell date +'%Y%m%d') --defsym __BUILD_TIME=$(shell date +'%H%M%S')
 STRIP_DEBUG = --strip-debug
 KEEP_DEBUG = --only-keep-debug
 
 # Prettify output
 V = 0
 ifeq ($V,0)
-  Q = @
-  P = > /dev/null
+	Q = @
+	P = > /dev/null
 endif
 
 default: all
 
 all: $(NAME).elf
 
-kernel:
-  $Q$(LD_FOR_TARGET) $(LDFLAGS) -o $(NAME).elf $^
-  @echo [OBJCOPY] $(NAME).sym
-  $Q$(OBJCOPY_FOR_TARGET) $(KEEP_DEBUG) $(NAME).elf $(NAME).sym
-  @echo [OBJCOPY] $(NAME).elf
-  $Q$(OBJCOPY_FOR_TARGET) $(STRIP_DEBUG) $(NAME).elf
+$(NAME).elf:
+	$Q$(LD_FOR_TARGET) $(LDFLAGS) -o $(NAME).elf $^
+	@echo [OBJCOPY] $(NAME).sym
+	$Q$(OBJCOPY_FOR_TARGET) $(KEEP_DEBUG) $(NAME).elf $(NAME).sym
+	@echo [OBJCOPY] $(NAME).elf
+	$Q$(OBJCOPY_FOR_TARGET) $(STRIP_DEBUG) $(NAME).elf
 
 clean:
-  $Q$(RM) $(NAME).elf $(NAME).sym *~
-  @echo Cleaned.
+	$Q$(RM) $(NAME).elf $(NAME).sym *~
+	@echo Cleaned.
 
 veryclean: clean
-  $Q$(RM) qemu-vlan0.pcap
-  @echo Very cleaned
+	$Q$(RM) qemu-vlan0.pcap
+	@echo Very cleaned
 
 qemu: $(NAME).elf
-  qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
+	qemu-system-i386 -monitor stdio -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
 
 qemu-dbg: $(NAME).elf
-  qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
+	qemu-system-i386 -monitor stdio -s -S -smp 2 -net nic,model=rtl8139 -net user,hostfwd=tcp::12345-:7 -kernel $(NAME).elf
 
 doc:
-  @doxygen
-  @echo Create documentation...
+	@doxygen
+	@echo Create documentation...
 
 test:
-  @echo "Nothing to test"
+	@echo "Nothing to test"
 
 %.o : %.c
-  @echo [CC] $@
-  $Q$(CC_FOR_TARGET) -c -D__KERNEL__ $(CFLAGS) -o $@ $<
-  @echo [DEP] $*.dep
-  $Q$(CC_FOR_TARGET) -MF $*.dep -MT $*.o -MM $(CFLAGS) $<
+	@echo [CC] $@
+	$Q$(CC_FOR_TARGET) -c -D__KERNEL__ $(CFLAGS) -o $@ $<
+	@echo [DEP] $*.dep
+	$Q$(CC_FOR_TARGET) -MF $*.dep -MT $*.o -MM $(CFLAGS) $<
 
 %.o : %.asm
-  @echo [ASM] $@
-  $Q$(NASM) $(NASMFLAGS) -o $@ $<
+	@echo [ASM] $@
+	$Q$(NASM) $(NASMFLAGS) -o $@ $<
 
 %.o : %.s
-  @echo [ASM] $@
-  $Q$(NASM) $(NASMFLAGS) -o $@ $<
+	@echo [ASM] $@
+	$Q$(NASM) $(NASMFLAGS) -o $@ $<
 
 .PHONY: default all clean emu gdb newlib tools test
  
