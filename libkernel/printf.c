@@ -34,7 +34,7 @@
  *  @(#)subr_prf.c  8.3 (Berkeley) 1/21/94
  */
 
-#include <bnix/string.h>
+#include <quantum/string.h>
 
 #define __64BIT__
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 #include <asm/string.h>
 
 #ifndef HAVE_ARCH_MEMCPY

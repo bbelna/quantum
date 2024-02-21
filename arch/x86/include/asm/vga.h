@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 
 void vga_init(void);
 void vga_clear(void);

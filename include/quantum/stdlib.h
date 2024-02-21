@@ -1,4 +1,4 @@
 #pragma once
 
-#include <bnix/config.h>
+#include <quantum/config.h>
 #include <asm/stddef.h>

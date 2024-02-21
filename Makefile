@@ -1,9 +1,9 @@
-# BNIX x86 Kernel Makefile
+# Quantum x86 Kernel Makefile
 
 TOPDIR = $(shell pwd)
 ARCH = x86
-NAME = bnix
-ISO_NAME = bnix
+NAME = q32
+ISO_NAME = quantum
 KERNDIRS = libkernel kernel arch/$(ARCH)/kernel
 SUBDIRS = $(KERNDIRS)
 

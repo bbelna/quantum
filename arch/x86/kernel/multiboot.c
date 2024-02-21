@@ -1,4 +1,4 @@
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 #include <asm/multiboot.h>
 
 multiboot_info_t* mb_info __attribute__((section(".data"))) = NULL;

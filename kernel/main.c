@@ -1,7 +1,7 @@
-#include <bnix/stddef.h>
-#include <bnix/stdio.h>
-#include <bnix/string.h>
-#include <bnix/processor.h>
+#include <quantum/stddef.h>
+#include <quantum/stdio.h>
+#include <quantum/string.h>
+#include <quantum/processor.h>
 
 extern const void kernel_start;
 extern const void kernel_end;

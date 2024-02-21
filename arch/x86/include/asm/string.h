@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 
 #ifdef HAVE_ARCH_MEMCPY
 inline static void* memcpy(void* dest, const void* src, size_t count) {

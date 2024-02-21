@@ -42,7 +42,7 @@
  * section 4.3.1, pp. 257--259.
  */
 
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 
 typedef uint64_t 	u_quad_t;
 typedef int64_t		quad_t;

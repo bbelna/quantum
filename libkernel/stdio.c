@@ -25,9 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <bnix/stdio.h>
-#include <bnix/string.h>
-#include <bnix/stdarg.h>
+#include <quantum/stdio.h>
+#include <quantum/string.h>
+#include <quantum/stdarg.h>
 #include <asm/vga.h>
 
 int koutput_init(void) {

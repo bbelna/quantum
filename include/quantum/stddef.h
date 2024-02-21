@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bnix/config.h>
+#include <quantum/config.h>
 #include <asm/stddef.h>
 
 #define VIDEO_MEM_ADDR      0xB8000

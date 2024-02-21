@@ -1,4 +1,4 @@
-#include <bnix/string.h>
+#include <quantum/string.h>
 #include <asm/io.h>
 #include <asm/vga.h>
 #include <asm/stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 
 inline static uint64_t rdtsc(void) {
   uint64_t x;

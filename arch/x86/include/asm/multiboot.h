@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bnix/stddef.h>
+#include <quantum/stddef.h>
 
 typedef uint16_t multiboot_uint16_t;
 typedef uint32_t multiboot_uint32_t;

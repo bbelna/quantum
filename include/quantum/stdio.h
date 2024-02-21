@@ -1,8 +1,8 @@
 #pragma once
 
-#include <bnix/config.h>
-#include <bnix/stddef.h>
-#include <bnix/stdarg.h>
+#include <quantum/config.h>
+#include <quantum/stddef.h>
+#include <quantum/stdarg.h>
 
 int kputs(const char*);
 int kputchar(int);

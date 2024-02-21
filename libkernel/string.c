@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <bnix/string.h>
+#include <quantum/string.h>
 
 #ifndef HAVE_ARCH_MEMCPY
 void* memcpy(void* dest, const void* src, size_t count) {
