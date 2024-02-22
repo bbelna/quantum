@@ -2,4 +2,6 @@
 
 #include <quantum/config.h>
 #include <quantum/stddef.h>
-#include <arch/x86/processor.h>
+#if CONFIG_X86_32
+#include <arch/x86/cpu.h>
+#endif

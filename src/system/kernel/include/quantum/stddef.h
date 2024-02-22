@@ -1,7 +1,9 @@
 #pragma once
 
 #include <quantum/config.h>
+#if CONFIG_X86_32
 #include <arch/x86/stddef.h>
+#endif
 
 #define VIDEO_MEM_ADDR      0xB8000
 #define NORETURN          __attribute__((noreturn))

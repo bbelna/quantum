@@ -13,6 +13,12 @@
 /* Define to use machine specific version of strncpy */
 #define HAVE_ARCH_STRNCPY 1
 
+/* Define to use x86 architecture */
+#define CONFIG_X86_32 1
+
+/* Define to use x64 architecture*/
+// #define CONFIG_X86_64 1
+
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "bbelna@aol.com"
 

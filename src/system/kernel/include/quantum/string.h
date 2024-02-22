@@ -1,7 +1,9 @@
 #pragma once
 
 #include <quantum/stddef.h>
+#if CONFIG_X86_32
 #include <arch/x86/string.h>
+#endif
 
 #ifndef HAVE_ARCH_MEMCPY
 void* memcpy(void* dest, const void* src, size_t count);

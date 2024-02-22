@@ -1,7 +1,7 @@
 #include <quantum/stddef.h>
 #include <quantum/stdio.h>
 #include <quantum/string.h>
-#include <quantum/processor.h>
+#include <quantum/cpu.h>
 
 extern const void kernel_start;
 extern const void kernel_end;
