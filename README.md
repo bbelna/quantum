@@ -1,3 +1,5 @@
 # Quantum
 
-My own custom x86 (x64 support coming) operating system. It's currently in baby stages.
+My own custom x86 (x64 support coming) operating system.
+
+Currently using GRUB bootloader until more features are built out.
