@@ -1,0 +1,16 @@
+[package]
+name = "quantum-core"
+description = "Arch-agnostic core logic and data structures for the Quantum kernel."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[dependencies]
+quantum-hal = { path = "../hal" }
+
+[lints]
+workspace = true

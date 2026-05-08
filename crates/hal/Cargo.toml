@@ -1,0 +1,13 @@
+[package]
+name = "quantum-hal"
+description = "Hardware abstraction contracts implemented by arch and platform crates."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
