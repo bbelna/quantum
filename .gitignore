@@ -1,0 +1,9 @@
+/target
+**/*.rs.bk
+Cargo.lock.bak
+
+.vscode
+.claude
+.cache
+compile_commands.json
+*.log
